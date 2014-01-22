@@ -3,7 +3,7 @@ cron2english
 
 Cron2English is a Ruby library for turning crontab schedules into English text.
 
-It is roughly a Ruby port of Sean Burke's [crontab2english](www.cpan.org/authors/id/S/SB/SBURKE/crontab2english_0.71.pl) Perl script, except its interface is a Ruby method rather than an executable, and it parses only time specs, not all the other things you might find in a crontab (comments, variable definitions, and the commands to run).
+It is roughly a Ruby port of Sean Burke's [crontab2english](http://interglacial.com/~sburke/pub/crontab2english.html) Perl script, except its interface is a Ruby method rather than an executable, and it parses only time specs, not all the other things you might find in a crontab (comments, variable definitions, and the commands to run).
 
 Usage
 -----

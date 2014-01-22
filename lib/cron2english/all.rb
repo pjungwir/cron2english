@@ -126,7 +126,7 @@ module Cron2English
 
         else
           # Can't say "noon:02", so use an always-numeric time format:
-          time_lines << "%s:%02d:%s" % [
+          time_lines << "%s:%02d%s" % [
             (h > 12) ? (h - 12) : h,
             bits[0][0][0],
             (h >= 12) ? 'pm' : 'am'

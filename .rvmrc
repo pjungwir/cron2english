@@ -1,0 +1,2 @@
+rvm_gemset_create_on_use_flag=1
+rvm gemset use ruby-2.0.0-p247@cron2english

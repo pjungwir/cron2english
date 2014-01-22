@@ -22,21 +22,21 @@ These strings are chosen so as to sound vaguely human if you say:
 
 Cron2English understands just about anything you'll find in a crontab, including non-POSIX extensions. It can parse:
 
-    * `1-20/3 * * * *`
-    * `1,2,3 * * * *`
-    * `1-9,15-30 * * * *`
-    * `1-9/3,15-30/4 * * * *`
-    * `1 2 3 4 mON`
-    * `1 2 3 jan 5`
-    * `@reboot`
-    * `@yearly`
-    * `@annually`
-    * `@monthly`
-    * `@weekly`
-    * `@daily`
-    * `@midnight`
-    * `@hourly`
-    * `*/3 * * * *`
+* `1-20/3 * * * *`
+* `1,2,3 * * * *`
+* `1-9,15-30 * * * *`
+* `1-9/3,15-30/4 * * * *`
+* `1 2 3 4 mON`
+* `1 2 3 jan 5`
+* `@reboot`
+* `@yearly`
+* `@annually`
+* `@monthly`
+* `@weekly`
+* `@daily`
+* `@midnight`
+* `@hourly`
+* `*/3 * * * *`
 
 Known Issues
 ------------

@@ -428,7 +428,7 @@ module Cron2English
     end
 
     def give_up(str)
-      raise "Unparseable crontab spec: #{str}"
+      raise Cron2English::ParseException.new("Unparseable crontab spec: #{str}")
     end
 
 

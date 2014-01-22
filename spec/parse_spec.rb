@@ -34,4 +34,10 @@ describe Cron2English do
     end
   end
 
+  it "should raise an exception on bad input" do
+    expect {
+      Cron2English.parse("not a time spec")
+    }.to raise_error(Cron2English::ParseException)
+  end
+
 end

@@ -9,6 +9,7 @@ module Cron2English
   NUM2MONTH = Hash[(1..12).zip(MONTHS)]
   # unshift @months, '';    # What is this about??
   DOW_REGEX = %r{^(#{DAYS_OF_WEEK.join("|")})$}i
+  DOW_RANGE_REGEX = %r{^(#{DAYS_OF_WEEK.join("|")})-(#{DAYS_OF_WEEK.join("|")})$}i
   MONTH_REGEX = %r{^(#{MONTHS.join("|")}|)$}i
   NUM2MONTH_LONG = Hash[(1..12).zip(%w{January February March April May June July August September October November December})]
   NUM2DOW_LONG = %w{Sunday Monday Tuesday Wednesday Thursday Friday Saturday Sunday}
@@ -65,7 +66,11 @@ module Cron2English
     def process_trad(m, h, day_of_month, month, dow)
       month = MONTH2NUM[$1.downcase] if month =~ MONTH_REGEX
       month = month.to_s if month
-      dow = DOW2NUM[$1.downcase] if dow =~ DOW_REGEX
+      if dow =~ DOW_REGEX
+        dow = DOW2NUM[$1.downcase]
+      elsif dow =~ DOW_RANGE_REGEX
+        dow = [$1, $2].map{|d| DOW2NUM[d.downcase]}.join('-')
+      end
       dow = dow.to_s if dow
       bits = [m, h, day_of_month, month, dow]
       unparseable = []

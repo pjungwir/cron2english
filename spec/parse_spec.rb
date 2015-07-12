@@ -10,6 +10,7 @@ describe Cron2English do
     ["50 6 * * 1", ["6:50am", "every Monday"]],
     ["1 2 * apr mOn", ["2:01am", "every Monday in", "April"]],
     ["1 2 * apr mon-fri", ["2:01am", "every Monday through Friday in", "April"]],
+    ["1 2 * apr-jun mOn", ["2:01am", "every Monday in", "from April to June"]],
     ["1 2 3 4 7", ["2:01am on", "the third of -- or every Sunday in --", "April"]],
     ["1-20/3 * * * *", ["every 3 minutes from 1 to 20 past", "every hour of", "every day"]],
     ["1,2,3 * * * *", ["1, 2, and 3 minutes past", "every hour of", "every day"]],

@@ -11,6 +11,7 @@ module Cron2English
   DOW_REGEX = %r{^(#{DAYS_OF_WEEK.join("|")})$}i
   DOW_RANGE_REGEX = %r{^(#{DAYS_OF_WEEK.join("|")})-(#{DAYS_OF_WEEK.join("|")})$}i
   MONTH_REGEX = %r{^(#{MONTHS.join("|")}|)$}i
+  MONTH_RANGE_REGEX = %r{^(#{MONTHS.join("|")})-(#{MONTHS.join("|")})$}i
   NUM2MONTH_LONG = Hash[(1..12).zip(%w{January February March April May June July August September October November December})]
   NUM2DOW_LONG = %w{Sunday Monday Tuesday Wednesday Thursday Friday Saturday Sunday}
   ATOM = '\d+|(?:\d+-\d+(?:/\d+)?)'
@@ -64,7 +65,11 @@ module Cron2English
     end
 
     def process_trad(m, h, day_of_month, month, dow)
-      month = MONTH2NUM[$1.downcase] if month =~ MONTH_REGEX
+      if month =~ MONTH_REGEX
+        month = MONTH2NUM[$1.downcase]
+      elsif month =~ MONTH_RANGE_REGEX
+        month = [$1, $2].map{|x| MONTH2NUM[x.downcase]}.join('-')
+      end
       month = month.to_s if month
       if dow =~ DOW_REGEX
         dow = DOW2NUM[$1.downcase]

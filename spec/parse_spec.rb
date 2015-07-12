@@ -8,6 +8,7 @@ describe Cron2English do
     ["10 8 15 * *", ["8:10am on", "the 15th of", "every month"]],
     ["40 5 * * *", ["5:40am", "every day"]],
     ["50 6 * * 1", ["6:50am", "every Monday"]],
+    ["0 17 * * Fri", ["5pm", "every Friday"]],
     ["1 2 * apr mOn", ["2:01am", "every Monday in", "April"]],
     ["1 2 * apr mon-fri", ["2:01am", "every Monday through Friday in", "April"]],
     ["1 2 * apr-jun mOn", ["2:01am", "every Monday in", "from April to June"]],

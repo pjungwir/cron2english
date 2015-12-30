@@ -65,17 +65,23 @@ module Cron2English
     end
 
     def process_trad(m, h, day_of_month, month, dow)
-      if month =~ MONTH_REGEX
-        month = MONTH2NUM[$1.downcase]
-      elsif month =~ MONTH_RANGE_REGEX
-        month = [$1, $2].map{|x| MONTH2NUM[x.downcase]}.join('-')
-      end
+      month = month.split(',').map{|month_part|
+        if month_part =~ MONTH_REGEX
+          month_part = MONTH2NUM[$1.downcase]
+        elsif month_part =~ MONTH_RANGE_REGEX
+          month_part = [$1, $2].map{|x| MONTH2NUM[x.downcase]}.join('-')
+        end
+        month_part
+      }.join(',')
       month = month.to_s if month
-      if dow =~ DOW_REGEX
-        dow = DOW2NUM[$1.downcase]
-      elsif dow =~ DOW_RANGE_REGEX
-        dow = [$1, $2].map{|d| DOW2NUM[d.downcase]}.join('-')
-      end
+      dow = dow.split(',').map{|dow_part|
+        if dow_part =~ DOW_REGEX
+          dow_part = DOW2NUM[$1.downcase]
+        elsif dow_part =~ DOW_RANGE_REGEX
+          dow_part = [$1, $2].map{|d| DOW2NUM[d.downcase]}.join('-')
+        end
+        dow_part
+      }.join(',')
       dow = dow.to_s if dow
       bits = [m, h, day_of_month, month, dow]
       unparseable = []

@@ -31,6 +31,7 @@ describe Cron2English do
     ["30 9 * * Mon-Tue", ["9:30am", "every Monday through Tuesday"]],
     ["30 9 * * Mon,Tue", ["9:30am", "every Monday or Tuesday"]],
     ["30 9 * * 1-2,4", ["9:30am", "every Monday through Tuesday or Thursday"]],
+    ["57 10 * * 2-3,6-7", ["10:57am", "every Tuesday through Wednesday or Saturday through Sunday"]],
     ["30 9 * * Mon-Tue,Thu", ["9:30am", "every Monday through Tuesday or Thursday"]],
     ["@reboot", ["reboot"]],
     ["@yearly", ["yearly"]],

@@ -14,7 +14,7 @@ module Cron2English
   MONTH_RANGE_REGEX = %r{^(#{MONTHS.join("|")})-(#{MONTHS.join("|")})$}i
   NUM2MONTH_LONG = Hash[(1..12).zip(%w{January February March April May June July August September October November December})]
   NUM2DOW_LONG = %w{Sunday Monday Tuesday Wednesday Thursday Friday Saturday Sunday}
-  ATOM = '\d+|(?:\d+-\d+(?:/\d+)?)'
+  ATOM = '(?:\d+|(?:\d+-\d+(?:/\d+)?))'
   ATOMS_REGEX = %r{^(?:#{ATOM})(?:,#{ATOM})*$}i
   AT_WORDS = {
     'reboot'   => 'At reboot',
